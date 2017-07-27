@@ -1,0 +1,66 @@
+{
+  "raspberry": {
+    "id": 1,
+    "sensors": [
+      {
+        "model": "DS18B20",
+        "params": {
+          "name": "hausse",
+          "serial": "000008e12cdf"
+        }
+      },
+      {
+        "model": "DS18B20",
+        "params": {
+          "name": "rayon",
+          "serial": "000008c9063d"
+        }
+      },
+      {
+        "model": "DS18B20",
+        "params": {
+          "name": "corps",
+          "serial": "000008e0fcec"
+        }
+      },
+      {
+        "model": "DS18B20",
+        "params": {
+          "name": "exterieur",
+          "serial": "000008ab822a"
+        }
+      },
+      {
+        "model": "DHT22",
+        "params": {
+          "name": "interieur",
+          "gpio": 12
+        }
+      },
+      {
+        "model": "HX711",
+        "params": {
+          "name": "ruche",
+          "gpio_clk": 6,
+          "gpio_dat": 5,
+          "scale_value": 12806.5,
+          "offset_value": -281518
+        }
+      },
+      {
+        "model": "SEN0159",
+        "params": {
+          "name": "interieur",
+          "channel": 0
+        }
+      }
+    ]
+  },
+  "app": {
+    "somei": {
+      "endpoint": "http://localhost:9000/",
+      "key": "lol",
+      "secret": "meh"
+    }
+  }
+}

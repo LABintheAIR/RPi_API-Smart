@@ -119,7 +119,10 @@ class SEN0159Sensor(Sensor):
         super().__init__(name, *args, **kwargs)
 
     def get_data(self):
-        v = mcp.read_adc( self.channel ) * 5 / 1024
+        v = mcp.read_adc( self.channel )
+        if v == 0:
+            return 0
+        v = v * 5 / 1024
         v /= 8.5
         v = -42.857 * math.log10( v ) + 436.429
         return math.ceil( v )

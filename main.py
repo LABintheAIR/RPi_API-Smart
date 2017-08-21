@@ -22,15 +22,12 @@ def init():
 
 def main():
     raspy = init()
-    old_time = time.time()
     waiting_seconds = 60
     while True:
-        new_time = time.time()
-        if old_time + waiting_seconds < new_time:
-            to_send = raspy.sensor_datas()
-            saved = rasp_data.save_datas(to_send)
-            #sended = rasp_data.send_datas(saved)
-            old_time = time.time()
+        to_send = raspy.sensor_datas()
+        saved = rasp_data.save_datas(to_send)
+        #sended = rasp_data.send_datas(saved)
+        time.sleep( waiting_seconds )
     # return 0
 
 if __name__ == '__main__':

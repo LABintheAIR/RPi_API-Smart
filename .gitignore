@@ -8,6 +8,8 @@ server_test/
 .git-old/
 .idea/
 
+sensor_backup.json
+
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml

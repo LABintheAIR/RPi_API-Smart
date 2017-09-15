@@ -20,20 +20,25 @@ def init():
     return MyPi()
 
 
-def main():
+def collect_data():
     raspy = init()
-    waiting_seconds = 60
-    while True:
-        to_send = raspy.sensor_datas()
-        saved = rasp_data.save_datas(to_send)
-        #sended = rasp_data.send_datas(saved)
-        time.sleep( waiting_seconds )
-    # return 0
+    to_send = raspy.sensor_datas()
+    saved = rasp_data.save_datas(to_send)
+    sended = rasp_data.send_to_somei(to_send)
+
+
+def main(argv):
+    if '--noloop' in argv:
+        collect_data()
+    else:
+        while True:
+            collect_data()
+            time.sleep( 60 )
 
 if __name__ == '__main__':
     logger = logging.getLogger("api_beez")
     try:
-        main()
+        main(sys.argv[1:])
     except( KeyboardInterrupt, SystemExit ):
         MyPi.cleanup()
         sys.exit()

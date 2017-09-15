@@ -39,8 +39,6 @@ class MyPi(object):
 
             sensors[ match['mesure'] ].append(match['class']( **sensor["params"] ) )
 
-        # La ligne en dessous permet de faire la meme chose que la boucle au dessus: -> List Comprehension
-        # sensors = [matches[sensor] for sensor in sensor_config]
         return sensors
 
     def get_sensors(self):
